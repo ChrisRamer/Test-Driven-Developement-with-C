@@ -9,29 +9,43 @@ namespace PierresBakeryTests
 	public class BakeryTests
 	{
 		[TestMethod]
-		public void GetCurrentOrder_GetOrderItems_List()
+		public void GetCurrentAmount_GetOrderAmountForBread_Int()
 		{
-			Bread bread = new Bread();
-			bread.MakeOrder(3);
-			Pastry pastry = new Pastry();
-			pastry.MakeOrder(2);
+			Bread bread = new Bread(3);
 
-			string result = bread.GetCurrentOrder().items;
+			int result = bread.GetCurrentAmount();
 
-			Assert.AreEqual(result, "bread x3, pastry x2");
+			Assert.AreEqual(result, 4);
 		}
 
 		[TestMethod]
-		public void GetCurrentOrder_GetOrderCost_Int()
+		public void GetCurrentCost_GetOrderCostForBread_Int()
 		{
-			Bread bread = new Bread();
-			bread.MakeOrder(3);
-			Pastry pastry = new Pastry();
-			pastry.MakeOrder(2);
+			Bread bread = new Bread(3);
 
-			int result = bread.GetCurrentOrder().cost;
+			int result = bread.GetCurrentCost();
 
-			Assert.AreEqual(result, 19);
+			Assert.AreEqual(result, 15);
+		}
+
+		[TestMethod]
+		public void GetCurrentAmount_GetOrderAmountForPastry_Int()
+		{
+			Pastry pastry = new Pastry(7);
+			 
+			int result = pastry.GetCurrentAmount();
+
+			Assert.AreEqual(result, 7);
+		}
+
+		[TestMethod]
+		public void GetCurrentCost_GetOrderCostForPastry_Int()
+		{
+			Pastry pastry = new Pastry(7);
+
+			int result = pastry.GetCurrentCost();
+
+			Assert.AreEqual(result, 12);
 		}
 	}
 }
