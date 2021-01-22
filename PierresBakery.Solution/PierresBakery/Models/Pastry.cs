@@ -16,9 +16,9 @@ namespace PierresBakery
 		public int GetCurrentCost()
 		{
 			int currCost = this.amount * this.price;
-			for (int i = 0; i < this.amount; i++)
+			for (int i = 1; i < this.amount + 1; i++)
 			{
-				if (i > 0 && i % 3 == 0) currCost--;
+				if (i % 3 == 0) currCost--;
 			}
 
 			return currCost;

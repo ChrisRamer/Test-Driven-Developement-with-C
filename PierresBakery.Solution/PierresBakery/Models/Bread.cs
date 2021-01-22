@@ -21,9 +21,9 @@ namespace PierresBakery
 		public int GetCurrentAmount()
 		{
 			int count = this.amount;
-			for (int i = 0; i < this.amount; i++)
+			for (int i = 1; i < this.amount + 1; i++)
 			{
-				if (i > 0 && i % 2 == 0) count++;
+				if (i % 2 == 0) count++;
 			}
 
 			return count;
