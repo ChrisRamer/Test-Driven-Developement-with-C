@@ -23,10 +23,5 @@ namespace PierresBakery
 
 			return currCost;
 		}
-
-		public int GetCurrentAmount()
-		{
-			return this.Amount;
-		}
 	}
 }

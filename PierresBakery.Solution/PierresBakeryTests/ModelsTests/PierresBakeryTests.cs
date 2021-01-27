@@ -33,7 +33,7 @@ namespace PierresBakeryTests
 		{
 			Pastry pastry = new Pastry(7);
 			 
-			int result = pastry.GetCurrentAmount();
+			int result = pastry.Amount;
 
 			Assert.AreEqual(result, 7);
 		}
