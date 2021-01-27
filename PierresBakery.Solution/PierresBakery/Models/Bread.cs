@@ -5,23 +5,23 @@ namespace PierresBakery
 {
 	public class Bread
 	{
-		public int amount {get; set;}
+		public int Amount {get; set;}
 		private int price = 5;
 
 		public Bread(int count)
 		{
-			this.amount = count;
+			this.Amount = count;
 		}
 
 		public int GetCurrentCost()
 		{
-			return this.amount * this.price;
+			return this.Amount * this.price;
 		}
 
 		public int GetCurrentAmount()
 		{
-			int count = this.amount;
-			for (int i = 1; i < this.amount + 1; i++)
+			int count = this.Amount;
+			for (int i = 1; i < this.Amount + 1; i++)
 			{
 				if (i % 2 == 0) count++;
 			}

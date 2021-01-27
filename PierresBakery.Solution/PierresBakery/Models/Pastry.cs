@@ -5,18 +5,18 @@ namespace PierresBakery
 {
 	public class Pastry
 	{
-		public int amount { get; set; }
+		public int Amount { get; set; }
 		private int price = 2;
 
 		public Pastry(int count)
 		{
-			this.amount = count;
+			this.Amount = count;
 		}
 
 		public int GetCurrentCost()
 		{
-			int currCost = this.amount * this.price;
-			for (int i = 1; i < this.amount + 1; i++)
+			int currCost = this.Amount * this.price;
+			for (int i = 1; i < this.Amount + 1; i++)
 			{
 				if (i % 3 == 0) currCost--;
 			}
@@ -26,7 +26,7 @@ namespace PierresBakery
 
 		public int GetCurrentAmount()
 		{
-			return this.amount;
+			return this.Amount;
 		}
 	}
 }
