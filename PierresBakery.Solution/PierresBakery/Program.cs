@@ -97,7 +97,7 @@ namespace PierresBakery
 				string userResponse1 = Console.ReadLine();
 				if (userResponse1 == "yes" || userResponse1 == "y")
 				{
-					pastryCount = pastry.GetCurrentAmount();
+					pastryCount = pastry.Amount;
 					GiveOrderSummary();
 					Console.WriteLine("-------------------------");
 					Console.WriteLine("Would you like to order some bread?");
