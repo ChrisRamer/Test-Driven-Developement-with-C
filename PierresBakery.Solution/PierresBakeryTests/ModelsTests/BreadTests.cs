@@ -6,7 +6,7 @@ using PierresBakery;
 namespace PierresBakeryTests
 {
 	[TestClass]
-	public class BakeryTests
+	public class BreadTests
 	{
 		[TestMethod]
 		public void GetCurrentAmount_GetOrderAmountForBread_Int()
@@ -26,26 +26,6 @@ namespace PierresBakeryTests
 			int result = bread.GetCurrentCost();
 
 			Assert.AreEqual(result, 15);
-		}
-
-		[TestMethod]
-		public void GetCurrentAmount_GetOrderAmountForPastry_Int()
-		{
-			Pastry pastry = new Pastry(7);
-			 
-			int result = pastry.Amount;
-
-			Assert.AreEqual(result, 7);
-		}
-
-		[TestMethod]
-		public void GetCurrentCost_GetOrderCostForPastry_Int()
-		{
-			Pastry pastry = new Pastry(7);
-
-			int result = pastry.GetCurrentCost();
-
-			Assert.AreEqual(result, 12);
 		}
 	}
 }
