@@ -21,6 +21,7 @@ namespace PierresBakery
 			if (string.IsNullOrEmpty(userChoice))
 			{
 				Console.WriteLine("ERROR: Please specify 'bread' or 'b' for bread, or 'pastry' or 'p' for pastry");
+				Main();
 				return;
 			}
 
