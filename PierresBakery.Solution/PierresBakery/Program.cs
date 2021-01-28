@@ -16,7 +16,6 @@ namespace PierresBakery
 			Bread bread = new Bread(0);
 			Pastry pastry = new Pastry(0);
 			int count = 0;
-			int breadCost = 0;
 
 			// Order bread
 			Console.WriteLine("How much bread would you like?");
@@ -52,8 +51,7 @@ namespace PierresBakery
 				return;
 			}
 
-			breadCost = bread.GetCurrentCost();
-
+			/*
 			// Confirm bonus(es)
 			if (bread.GetBonus() > 0)
 			{
@@ -68,12 +66,13 @@ namespace PierresBakery
 					}
 				}
 			}
+			*/
 
 			// Order summary
 			Console.WriteLine("Your order:");
-			if (bread.Amount > 0) Console.WriteLine("Bread x" + bread.Amount + " for $" + breadCost);
-			if (pastry.Amount > 0) Console.WriteLine("Pastry x" + pastry.Amount + " for $" + pastry.GetCurrentCost());
-			Console.WriteLine("Total: $" + (breadCost + pastry.GetCurrentCost()));
+			if (bread.Amount > 0) Console.WriteLine("Bread x" + bread.Amount + " for $" + bread.Cost);
+			if (pastry.Amount > 0) Console.WriteLine("Pastry x" + pastry.Amount + " for $" + pastry.Cost);
+			Console.WriteLine("Total: $" + (bread.Cost + pastry.Cost));
 
 			// Confirm order
 			Console.WriteLine("-------------------------");

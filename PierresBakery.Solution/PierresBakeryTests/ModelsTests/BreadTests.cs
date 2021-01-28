@@ -28,7 +28,7 @@ namespace PierresBakeryTests
 		[TestMethod]
 		public void GetCurrentCost_GetOrderCostForBread_Int()
 		{
-			Bread bread = new Bread(3);
+			Bread bread = new Bread(6);
 
 			int result = bread.GetCurrentCost();
 

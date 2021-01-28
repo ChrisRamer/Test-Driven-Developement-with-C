@@ -6,6 +6,7 @@ namespace PierresBakery
 	public class Pastry
 	{
 		public int Amount { get; set; }
+		public int Cost { get; set; }
 		private int Price= 2;
 
 		public Pastry(int count)
@@ -21,6 +22,7 @@ namespace PierresBakery
 				if (i % 3 == 0) currCost--;
 			}
 
+			Cost = currCost;
 			return currCost;
 		}
 	}
