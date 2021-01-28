@@ -6,7 +6,7 @@ namespace PierresBakery
 	public class Bread
 	{
 		public int Amount {get; set;}
-		private int price = 5;
+		private int Price = 5;
 
 		public Bread(int count)
 		{
@@ -15,12 +15,11 @@ namespace PierresBakery
 
 		public int GetCurrentCost()
 		{
-			return this.Amount * this.price;
+			return this.Amount * this.Price;
 		}
-
-		public int GetCurrentAmount()
+		public int GetBonus()
 		{
-			int count = this.Amount;
+			int count = 0;
 			for (int i = 1; i < this.Amount + 1; i++)
 			{
 				if (i % 2 == 0) count++;

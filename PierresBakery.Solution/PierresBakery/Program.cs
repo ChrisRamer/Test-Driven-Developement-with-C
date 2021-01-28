@@ -5,145 +5,95 @@ namespace PierresBakery
 {
 	public class Program
 	{
-		private static int breadCount = 0;
-		private static int breadCost = 0;
-		private static int pastryCount = 0;
-		private static int pastryCost = 0;
-
 		public static void Main()
 		{
+			// Intro
 			Console.WriteLine("-------------------------");
 			Console.WriteLine("Welcome to Pierre's Bakery! Would you like to order some of our fabulous bread or our award winning pastries?");
 			Console.WriteLine("Bread is $5 per loaf; buy 2 get 1 free! Pastries are $2 or 3 for $5!");
 			Console.WriteLine("Respoond with 'bread' or 'b' for bread, or 'pastry' or 'p' for pastry");
-			string userChoice = EvaluateUserChoice(Console.ReadLine());
 			Console.WriteLine("-------------------------");
-			if (string.IsNullOrEmpty(userChoice))
+			Bread bread = new Bread(0);
+			Pastry pastry = new Pastry(0);
+			int count = 0;
+			int breadCost = 0;
+
+			// Order bread
+			Console.WriteLine("How much bread would you like?");
+
+			if (int.TryParse(Console.ReadLine(), out count))
 			{
-				Console.WriteLine("ERROR: Please specify 'bread' or 'b' for bread, or 'pastry' or 'p' for pastry");
+				bread = new Bread(count);
+				Console.WriteLine("-------------------------");
+				Console.WriteLine("You chose " + count + " loaves of bread, costing $" + bread.GetCurrentCost());
+				Console.WriteLine("-------------------------");
+			}
+			else
+			{
+				Console.WriteLine("ERROR: Please specify an amount (number) of bread to get.");
 				Main();
 				return;
 			}
 
-			if (userChoice == "bread")
+			// Order pastries
+			Console.WriteLine("How many pastries would you like?");
+
+			if (int.TryParse(Console.ReadLine(), out count))
 			{
-				OrderBread();
+				pastry = new Pastry(count);
+				Console.WriteLine("-------------------------");
+				Console.WriteLine("You chose " + count + " pastries, costing $" + pastry.GetCurrentCost());
+				Console.WriteLine("-------------------------");
 			}
 			else
 			{
-				Console.WriteLine("How many pastries would you like?");
-				Console.WriteLine("Pastries are $2 or 3 for $5!");
-
-				OrderPastry();
+				Console.WriteLine("ERROR: Please specify an amount (number) of bread to get.");
+				Main();
+				return;
 			}
-		}
 
-		static void OrderBread()
-		{
-			Console.WriteLine("How much bread would you like?");
-			Console.WriteLine("Bread is $5 per loaf; buy 2 get 1 free!");
-			string amount = Console.ReadLine();
+			breadCost = bread.GetCurrentCost();
 
-			if (int.TryParse(amount, out int count))
+			// Confirm bonus(es)
+			if (bread.GetBonus() > 0)
 			{
-				Console.WriteLine("-------------------------");
-				Bread bread = new Bread(count);
-				breadCost = bread.GetCurrentCost();
-				Console.WriteLine("You would like " + count + " loaves of bread, costing $" + breadCost + "?");
-				Console.WriteLine("Respond with 'yes' or 'y' to confirm or anything else to reset order.");
+				Console.WriteLine("Your order can include " + (bread.GetBonus()) + " free loaves of bread");
+				Console.WriteLine("How many of these free loaves would you like to add to your order?");
 
-				string userResponse1 = Console.ReadLine();
-				if (userResponse1 == "yes" || userResponse1 == "y")
+				if (int.TryParse(Console.ReadLine(), out count))
 				{
-					breadCount = bread.GetCurrentAmount();
-					GiveOrderSummary();
-					Console.WriteLine("-------------------------");
-					Console.WriteLine("Would you like to order some pastries?");
-					Console.WriteLine("Respond with 'yes' or 'y' to order pastries or anything else to confirm the current order.");
-
-					string userResponse2 = Console.ReadLine();
-					if (userResponse2 == "yes" || userResponse2 == "y")
+					if (count <= bread.GetBonus())
 					{
-						OrderPastry();
+						bread.Amount += count;
 					}
-					else
-					{
-						ConfirmOrder();
-					}
-				}
-				else
-				{
-					Main();
-					breadCount = 0;
-					pastryCount = 0;
 				}
 			}
-		}
 
-		static void OrderPastry()
-		{
-			Console.WriteLine("How many pastries would you like?");
-			Console.WriteLine("1 pastry is $2; buy 3 for $5!");
-			string amount = Console.ReadLine();
-
-			if (int.TryParse(amount, out int count))
-			{
-				Console.WriteLine("-------------------------");
-				Pastry pastry = new Pastry(count);
-				pastryCost = pastry.GetCurrentCost();
-				Console.WriteLine("You would like " + count + " pastries, costing $" + pastryCost + "?");
-				Console.WriteLine("Respond with 'yes' or 'y' to confirm or anything else to reset order.");
-
-				string userResponse1 = Console.ReadLine();
-				if (userResponse1 == "yes" || userResponse1 == "y")
-				{
-					pastryCount = pastry.Amount;
-					GiveOrderSummary();
-					Console.WriteLine("-------------------------");
-					Console.WriteLine("Would you like to order some bread?");
-					Console.WriteLine("Respond with 'yes' or 'y' to order pastries or anything else to confirm the current order.");
-
-					string userResponse2 = Console.ReadLine();
-					if (userResponse2 == "yes" || userResponse2 == "y")
-					{
-						OrderBread();
-					}
-					else
-					{
-						ConfirmOrder();
-					}
-				}
-				else
-				{
-					Main();
-					breadCount = 0;
-					pastryCount = 0;
-				}
-			}
-		}
-
-		static void GiveOrderSummary()
-		{
-			Console.WriteLine("-------------------------");
+			// Order summary
 			Console.WriteLine("Your order:");
-			if (breadCount > 0) Console.WriteLine("Bread x" + breadCount + " for $" + breadCost);
-			if (pastryCount > 0) Console.WriteLine("Pastry x" + pastryCount + " for $" + pastryCost);
-			Console.WriteLine("Total: $" + (breadCost + pastryCost));
-		}
+			if (bread.Amount > 0) Console.WriteLine("Bread x" + bread.Amount + " for $" + breadCost);
+			if (pastry.Amount > 0) Console.WriteLine("Pastry x" + pastry.Amount + " for $" + pastry.GetCurrentCost());
+			Console.WriteLine("Total: $" + (breadCost + pastry.GetCurrentCost()));
 
-		static void ConfirmOrder()
-		{
+			// Confirm order
 			Console.WriteLine("-------------------------");
-			GiveOrderSummary();
-			Console.WriteLine("Thank you for your purchase! Your total is: $" + (breadCost + pastryCost));
-		}
+			Console.WriteLine("Would you like to confirm this order?");
+			Console.WriteLine("Type 'yes' or 'y' to confirm. Anything else to reset it.");
+			string confirmation = Console.ReadLine().ToLower();
 
-		static string EvaluateUserChoice(string choice)
-		{
-			if (choice == "bread" || choice == "b") return "bread";
-			if (choice == "pastry" || choice == "p") return "pastry";
-
-			return string.Empty;
+			if (confirmation == "yes" || confirmation == "y")
+			{
+				int randYears = new Random().Next(10, 999);
+				Console.WriteLine("-------------------------");
+				Console.WriteLine("Thank you for your order! It will be delivered fresh to your door in just under " + randYears + " years!");
+			}
+			// Reset order
+			else
+			{
+				Console.WriteLine("-------------------------");
+				Console.WriteLine("Your order has been reset.");
+				Main();
+			}
 		}
 	}
 }
