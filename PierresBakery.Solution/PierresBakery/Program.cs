@@ -51,23 +51,6 @@ namespace PierresBakery
 				return;
 			}
 
-			/*
-			// Confirm bonus(es)
-			if (bread.GetBonus() > 0)
-			{
-				Console.WriteLine("Your order can include " + (bread.GetBonus()) + " free loaves of bread");
-				Console.WriteLine("How many of these free loaves would you like to add to your order?");
-
-				if (int.TryParse(Console.ReadLine(), out count))
-				{
-					if (count <= bread.GetBonus())
-					{
-						bread.Amount += count;
-					}
-				}
-			}
-			*/
-
 			// Order summary
 			Console.WriteLine("Your order:");
 			if (bread.Amount > 0) Console.WriteLine("Bread x" + bread.Amount + " for $" + bread.Cost);
