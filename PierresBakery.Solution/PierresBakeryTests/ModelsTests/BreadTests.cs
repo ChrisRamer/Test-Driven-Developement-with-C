@@ -34,15 +34,5 @@ namespace PierresBakeryTests
 
 			Assert.AreEqual(result, 15);
 		}
-
-		[TestMethod]
-		public void GetBonus_GetOrderBonusForBread_Int()
-		{
-			Bread bread = new Bread(3);
-
-			int result = bread.GetBonus();
-
-			Assert.AreEqual(result, 1);
-		}
 	}
 }

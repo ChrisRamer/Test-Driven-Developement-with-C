@@ -25,16 +25,5 @@ namespace PierresBakery
 			Cost = currCost;
 			return currCost;
 		}
-
-		public int GetBonus()
-		{
-			int count = 0;
-			for (int i = 1; i < this.Amount + 1; i++)
-			{
-				if (i % 2 == 0) count++;
-			}
-
-			return count;
-		}
 	}
 }
