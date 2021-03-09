@@ -10,9 +10,7 @@ Prompts the user with a choice of buying bread or a pastry with their respective
 
 ## Setup/Installation Requirements
 
-Clone this repo to your PC.
-Open it up in an IDE of your choice and open the terminal and navigate to the directory of the main project (`cd  "[where you stored project]\PierresBakery\PierresBakery.Solution"`).
-Then in terminal, run the command `dotnet run`.
+Clone this repo. Run terminal command `dotnet run` from the `VendorsAndOrders` directory. Then open `localhost:5000` in your browser.
 
 ## Specs
 
