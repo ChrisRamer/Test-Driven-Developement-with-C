@@ -5,18 +5,25 @@ namespace PierresBakery
 		public int Amount { get; set; }
 		public int Cost { get; set; }
 		private int Price = 5;
+		private bool useDiscount = false;
 
-		public Bread(int count)
+		public Bread(int count, bool useDiscount = true)
 		{
 			this.Amount = count;
+			this.useDiscount = useDiscount;
 		}
 
 		public int GetCurrentCost()
 		{
 			int currCost = this.Amount * this.Price;
-			for (int i = 1; i < this.Amount + 1; i++)
+
+			// Discount
+			if (useDiscount)
 			{
-				if (i % 2 == 0) currCost -= 5;
+				for (int i = 1; i < this.Amount + 1; i++)
+				{
+					if (i % 2 == 0) currCost -= 5;
+				}
 			}
 
 			Cost = currCost;

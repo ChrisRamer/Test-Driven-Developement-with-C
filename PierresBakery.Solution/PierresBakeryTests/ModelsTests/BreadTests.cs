@@ -32,5 +32,15 @@ namespace PierresBakeryTests
 
 			Assert.AreEqual(result, 15);
 		}
+
+		[TestMethod]
+		public void GetCurrentCostWithoutDiscount_GetOrderCostForBread()
+		{
+			Bread bread = new Bread(2, false);
+
+			int result = bread.GetCurrentCost();
+
+			Assert.AreEqual(result, 10);
+		}
 	}
 }
