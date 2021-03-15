@@ -34,13 +34,13 @@ namespace PierresBakeryTests
 		}
 
 		[TestMethod]
-		public void GetCurrentCostWithoutDiscount_GetOrderCostForBread()
+		public void GetCurrentCost_GetOrderCostMinusDiscountForBread_Int()
 		{
-			Bread bread = new Bread(2, false);
+			Bread bread = new Bread(4, false);
 
 			int result = bread.GetCurrentCost();
 
-			Assert.AreEqual(result, 10);
+			Assert.AreEqual(result, 20);
 		}
 	}
 }

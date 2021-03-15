@@ -36,11 +36,11 @@ namespace PierresBakeryTests
 		[TestMethod]
 		public void GetCurrentCost_GetOrderCostMinusDiscountForPastry_Int()
 		{
-			Pastry pastry = new Pastry(3);
+			Pastry pastry = new Pastry(6, false);
 
 			int result = pastry.GetCurrentCost();
 
-			Assert.AreEqual(result, 5);
+			Assert.AreEqual(result, 12);
 		}
 	}
 }
