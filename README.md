@@ -14,18 +14,18 @@ Clone this repo. Run terminal command `dotnet run` from the `VendorsAndOrders` d
 
 ## Specs
 
-* **Spec:** User inputs how many loaves of bread they wish to order
+* **Spec:** User inputs how many loaves of bread they wish to order (1 loaf is $5)
 * **Input:** 1
-* **Output:** Stores that amount & calculates price ($5). Each loaf costs $5, but for every 2, you get 1 free. Regular price is  outputted to user since not eligible for discount.
-* **Spec:** User inputs how many loaves of bread they wish to order
+* **Output:** $5
+* **Spec:** User inputs how many loaves of bread they wish to order (buy 3 for price of 2 ($5 each))
 * **Input:** 3
-* **Output:** Stores that amount & calculates price ($10). Each loaf costs $5, but for every 2, you get 1 free. Discounted price is outputted to user.
-* **Spec:** User inputs how many pastires they wish to order
+* **Output:** $10
+* **Spec:** User inputs how many pastires they wish to order (1 pastry is $2)
 * **Input:** 2
-* **Output:** Stores that amount & calculates price ($4). Each pastry costs $1 or buy 3 pastries for $5. Regular price is outputted to user.
-* **Spec:**User inputs how many pastries they wish to order
-* **Input:**3
-* **Output:** Stores that amount & calculates price ($15). Each pastry costs $1 or buy 3 pastries for $5. Discounted price is outputted to user.
+* **Output:** $4
+* **Spec:** User inputs how many pastries they wish to order (buy 3 get $1 off)
+* **Input:** 3
+* **Output:**  $15
 
 ## Technologies Used
 
