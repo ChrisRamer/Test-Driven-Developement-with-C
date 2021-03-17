@@ -10,7 +10,7 @@ Prompts the user with a choice of buying bread or a pastry with their respective
 
 ## Setup/Installation Requirements
 
-Clone this repo. Run terminal command `dotnet run` from the `VendorsAndOrders` directory. Then open `localhost:5000` in your browser.
+Clone this repo. Run terminal command `dotnet run` from the `PierresBakery` directory. Then open `localhost:5000` in your browser.
 
 ## Specs
 
@@ -20,12 +20,12 @@ Clone this repo. Run terminal command `dotnet run` from the `VendorsAndOrders` d
 * **Spec:** User inputs how many loaves of bread they wish to order (buy 3 for price of 2 ($5 each))
 * **Input:** 3
 * **Output:** $10
-* **Spec:** User inputs how many pastires they wish to order (1 pastry is $2)
+* **Spec:** User inputs how many pastries they wish to order (1 pastry is $2)
 * **Input:** 2
 * **Output:** $4
 * **Spec:** User inputs how many pastries they wish to order (buy 3 get $1 off)
 * **Input:** 3
-* **Output:**  $15
+* **Output:** $5
 
 ## Technologies Used
 
