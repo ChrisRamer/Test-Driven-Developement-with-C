@@ -1,6 +1,6 @@
 # *Pierres Bakery*
 
-#### *Pierres Bakery, 1/20/2021*
+#### *Pierres Bakery, 3/19/2021*
 
 #### By **Chris Ramer**
 
@@ -10,7 +10,7 @@ Prompts the user with a choice of buying bread or a pastry with their respective
 
 ## Setup/Installation Requirements
 
-Clone this repo. Run terminal command `dotnet run` from the `PierresBakery` directory. Then open `localhost:5000` in your browser.
+Clone this repo. Run terminal command `dotnet run` from the `PierresBakery` directory.
 
 ## Specs
 
