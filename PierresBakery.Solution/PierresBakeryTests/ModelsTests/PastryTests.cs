@@ -34,7 +34,7 @@ namespace PierresBakeryTests
 		}
 
 		[TestMethod]
-		public void GetCurrentCost_GetOrderCostMinusDiscountForPastry_Int()
+		public void GetCurrentCost_GetOrderCostWithoutDiscountForPastry_Int()
 		{
 			Pastry pastry = new Pastry(6, false);
 
