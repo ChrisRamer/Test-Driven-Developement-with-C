@@ -22,7 +22,7 @@ namespace PierresBakery
 			{
 				for (int i = 1; i < this.Amount + 1; i++)
 				{
-					if (i % 2 == 0) currCost -= 5;
+					if (i % 3 == 0) currCost -= 5;
 				}
 			}
 
